@@ -10,8 +10,8 @@ class ChatRoom(SoftDeleteAndTimeAbstract):
 	eid = models.CharField(max_length=100, unique=True)
 
 class ChatMessage(SoftDeleteAndTimeAbstract):
-	room = models.ForeignKey(ChatRoom)
-	user = models.ForeignKey(settings.AUTH_USER_MODEL)
+	room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE)
+	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	text = models.TextField()
 
 	def to_data(self):
