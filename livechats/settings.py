@@ -42,6 +42,16 @@ INSTALLED_APPS = [
     'chats.apps.ChatsConfig',
 ]
 
+ASGI_APPLICATION = 'livechats.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+    'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    'CONFIG': {
+        "hosts" : [('127.0.0.1', 6379)],
+        },
+    },
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -71,7 +81,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'livechats.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

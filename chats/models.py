@@ -6,11 +6,11 @@ from model_utils.models import TimeStampedModel, SoftDeletableModel
 class SoftDeleteAndTimeAbstract(SoftDeletableModel, TimeStampedModel):
 	pass
 
-class ChatRoom(SoftDeleteAndTimeAbstract):
+class Thread(SoftDeleteAndTimeAbstract):
 	eid = models.CharField(max_length=100, unique=True)
 
 class ChatMessage(SoftDeleteAndTimeAbstract):
-	room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE)
+	room = models.ForeignKey(Thread, on_delete=models.CASCADE)
 	user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	text = models.TextField()
 
