@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'chats.apps.ChatsConfig',
 ]
 
-print('now in settings.py')
 ASGI_APPLICATION = 'livechats.asgi.application'
 CHANNEL_LAYERS = {
     'default': {
