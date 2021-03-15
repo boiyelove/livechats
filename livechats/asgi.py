@@ -15,6 +15,7 @@ import chats.routing
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'livechats.settings')
 
+print('now in asgi')
 # application = get_asgi_application()
 application = ProtocolTypeRouter({
 	"http": get_asgi_application(),
